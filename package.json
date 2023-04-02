@@ -1,0 +1,22 @@
+{
+  "name": "testing",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.1.0",
+    "unocss": "^0.50.6",
+    "vite": "^4.2.0"
+  },
+  "dependencies": {
+    "@arrow-js/core": "^1.0.0-alpha.9",
+    "@unocss/reset": "^0.50.6",
+    "immer": "^9.0.21",
+    "vue": "^3.2.47"
+  }
+}

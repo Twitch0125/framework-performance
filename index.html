@@ -6,7 +6,7 @@
   <link rel="icon" href="/favicon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="ArrowJS Demo" />
-  <script src ="/main.js" type="module"></script>
+  <script src="/main.js" type="module"></script>
   <script src="/src/components/nav.js" type="module"></script>
 </head>
 
@@ -15,8 +15,12 @@
     <h1 class="text-4xl font-bold">
       Reactivity update performance
     </h1>
-    <p>Test: 500 list items, each changing their own value on a 0ms timeout, 100 times. Check the console for benchmark times. Refresh before clicking a different button! </p>
-    <a target="_blank" class="underline text-orange-700" href="https://github.com/Twitch0125/framework-performance">Github</a>
+    <p>Test: 500 list items, each changing their own value on a 0ms timeout, 100 times. </p>
+    <p>
+      Check the console for benchmark times. Refresh before clicking a different button!
+    </p>
+    <a target="_blank" class="underline text-orange-700"
+      href="https://github.com/Twitch0125/framework-performance">Github</a>
     <nav id="nav">
     </nav>
   </div>
@@ -30,12 +34,13 @@
       border-width: 1px;
       background-color: white;
     }
+
     ul li {
       display: block;
       width: 10%;
       border: 1px solid gray;
       border-width: 0px;
-      border-bottom-width:  1px;
+      border-bottom-width: 1px;
       box-sizing: border-box;
       padding: 0.25em;
     }

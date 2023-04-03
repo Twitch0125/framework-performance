@@ -1,17 +1,22 @@
-import { createApp, h, ref } from "vue";
+import { reactive, html } from "@arrow-js/core";
 import list from "./utils/list.js";
 import token from "./utils/token.js";
 import produce from "immer";
-
-const listData = ref(list);
+const el = document.getElementById("app");
+const data = reactive({
+  list,
+});
+html`<ul>
+  ${data.list.map((item) => html`<li>${() => item.name}</li>`)}
+</ul>`(el);
 
 function mutate() {
   setTimeout(() => {
-    listData.value = produce(listData.value, (arr) => {
-      arr.forEach((item) => {
+    data.list = produce(data.list, (l) =>
+      l.forEach((item) => {
         item.name = token();
-      });
-    });
+      })
+    );
   }, 0);
 }
 function go() {
@@ -33,15 +38,3 @@ export async function benchmark() {
   await go();
   console.timeEnd("benchmark");
 }
-
-const app = createApp({
-  setup() {
-    return () =>
-      h(
-        "ul",
-        listData.value.map((item) => h("li", item.name))
-      );
-  },
-}).mount("#app");
-
-export default app;

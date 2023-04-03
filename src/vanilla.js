@@ -1,18 +1,21 @@
-import { createApp, h, ref } from "vue";
 import list from "./utils/list.js";
 import token from "./utils/token.js";
-import produce from "immer";
-
-const listData = ref(list);
+const el = document.getElementById("app");
+const listItems = list.map((item) => {
+  const element = document.createElement("li");
+  element.innerText = item.title;
+  return element;
+});
+const listElement = document.createElement("ul")
+listElement.append(...listItems) 
+el.replaceChildren(listElement);
 
 function mutate() {
-  setTimeout(() => {
-    listData.value = produce(listData.value, (arr) => {
-      arr.forEach((item) => {
-        item.name = token();
-      });
-    });
-  }, 0);
+  listItems.forEach((el) => {
+    setTimeout(() => {
+      el.innerText = token();
+    }, 0);
+  });
 }
 function go() {
   return new Promise((resolve) => {
@@ -33,15 +36,3 @@ export async function benchmark() {
   await go();
   console.timeEnd("benchmark");
 }
-
-const app = createApp({
-  setup() {
-    return () =>
-      h(
-        "ul",
-        listData.value.map((item) => h("li", item.name))
-      );
-  },
-}).mount("#app");
-
-export default app;

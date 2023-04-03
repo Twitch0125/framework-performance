@@ -3,7 +3,9 @@ import { reactive } from "vue";
 import Button from "./Button.vue";
 const state = reactive({ active: null });
 const buttons = [
+  { title: "Vanilla", handler: () => import("/src/vanilla.js") },
   { title: "Arrow", handler: () => import("/src/arrow.js") },
+  { title: "Arrow immer", handler: () => import("/src/arrow-immer.js") },
   { title: "Vue", handler: () => import("/src/vue.js") },
   { title: "Vue render function", handler: () => import("/src/vue-render.js") },
   { title: "Vue array of refs", handler: () => import("/src/vue-array.js") },

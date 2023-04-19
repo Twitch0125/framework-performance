@@ -13,7 +13,7 @@ el.replaceChildren(listElement);
 function mutate() {
   listItems.forEach((el) => {
     setTimeout(() => {
-      el.innerText = token();
+      el.childNodes[0].nodeValue = token();
     }, 0);
   });
 }

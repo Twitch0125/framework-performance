@@ -1,5 +1,4 @@
-import list from "./utils/list.js";
-import token from "./utils/token.js";
+import { list, token, go } from "./utils/index.js"
 const el = document.getElementById("app");
 const listItems = list.map((item) => {
   const element = document.createElement("li");
@@ -17,22 +16,9 @@ function mutate() {
     }, 0);
   });
 }
-function go() {
-  return new Promise((resolve) => {
-    let iter = 0;
-    let interval = setInterval(() => {
-      iter++;
-      mutate();
-      if (iter === 100) {
-        clearInterval(interval);
-        resolve();
-      }
-    }, 0);
-  });
-}
 
 export async function benchmark() {
   console.time("benchmark");
-  await go();
+  await go(mutate);
   console.timeEnd("benchmark");
 }

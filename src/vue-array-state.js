@@ -1,6 +1,6 @@
 import { ref } from "vue";
-import list from "./utils/list";
-import token from "./utils/token";
+import { list, token, go } from "./utils/index.js";
+
 export const listData = list.map((item) => ref(item));
 function mutate() {
   listData.forEach((item) => {
@@ -9,22 +9,10 @@ function mutate() {
     }, 0);
   });
 }
-function go() {
-  return new Promise((resolve) => {
-    let iter = 0;
-    let interval = setInterval(() => {
-      iter++;
-      mutate();
-      if (iter === 100) {
-        clearInterval(interval);
-        resolve();
-      }
-    }, 0);
-  });
-}
+
 
 export async function benchmark() {
   console.time("benchmark");
-  await go();
+  await go(mutate);
   console.timeEnd("benchmark");
 }

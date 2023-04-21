@@ -9,9 +9,11 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^2.1.0",
     "@unocss/reset": "^0.50.8",
     "@vitejs/plugin-react": "^4.0.0",
     "@vitejs/plugin-vue": "^4.1.0",
+    "svelte": "^3.58.0",
     "unocss": "^0.50.8",
     "vite": "^4.3.1"
   },

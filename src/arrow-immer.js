@@ -1,6 +1,6 @@
 import { reactive, html } from "@arrow-js/core";
 import { list, token, go } from "./utils/index.js";
-import produce from "immer";  
+import produce from "immer";
 const el = document.getElementById("app");
 const data = reactive({
   list,

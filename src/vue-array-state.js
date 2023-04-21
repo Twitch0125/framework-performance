@@ -10,7 +10,6 @@ function mutate() {
   });
 }
 
-
 export async function benchmark() {
   console.time("benchmark");
   await go(mutate);

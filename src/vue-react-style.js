@@ -10,7 +10,7 @@ function mutate() {
   list.forEach((item) => {
     setTimeout(() => {
       item.name = token();
-      comp.component.proxy.$forceUpdate()
+      comp.component.proxy.$forceUpdate();
     }, 0);
   });
 }

@@ -1,12 +1,12 @@
-import { list, token, go } from "./utils/index.js"
+import { list, token, go } from "./utils/index.js";
 const el = document.getElementById("app");
 const listItems = list.map((item) => {
   const element = document.createElement("li");
   element.innerText = item.title;
   return element;
 });
-const listElement = document.createElement("ul")
-listElement.append(...listItems) 
+const listElement = document.createElement("ul");
+listElement.append(...listItems);
 el.replaceChildren(listElement);
 
 function mutate() {

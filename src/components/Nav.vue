@@ -12,6 +12,7 @@ const buttons = [
   { title: "Vue array of refs", handler: () => import("/src/vue-array.js") },
   { title: "Vue array of shallowRefs", handler: () => import("/src/vue-array-shallow.js") },
   { title: "Vue immer", handler: () => import("/src/vue-immer.js") },
+  { title: "Vue react style", handler: () => import("/src/vue-react-style.js") },
   { title: "React", handler: () => import("/src/react.jsx") },
 ];
 function handleClick(button, i) {

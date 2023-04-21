@@ -1,4 +1,4 @@
-import { createApp, ref, h, onMounted } from "vue";
+import { createApp, h } from "vue";
 import { listData } from "./vue-state.js";
 export { benchmark } from "./vue-state.js";
 const app = createApp({

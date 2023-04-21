@@ -5,7 +5,8 @@ import produce from "immer";
 const listData = ref(list);
 
 //************************** */
-// It looks like this only triggers 100 side effects, where as the other vue implementations trigger 50,000 side effects
+// It looks like this only triggers 100 updates, where as the other vue implementations trigger 50,000 updates
+// I guess only use Immer if you're okay with that.
 //************************** */
 function mutate() {
   setTimeout(() => {

@@ -1,4 +1,4 @@
-import {ref} from 'vue'
+import { ref } from "vue";
 import { list, token, go } from "./utils/index.js";
 
 export const listData = ref(list);
@@ -12,6 +12,6 @@ function mutate() {
 
 export async function benchmark() {
   console.time("benchmark");
-  await go(mutate)
+  await go(mutate);
   console.timeEnd("benchmark");
 }

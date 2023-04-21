@@ -2,10 +2,12 @@ import { defineConfig } from "vite";
 import { presetUno } from "unocss";
 import UnoCSS from "unocss/vite";
 import vue from "@vitejs/plugin-vue";
+import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [
     vue(),
+    react(),
     UnoCSS({
       presets: [presetUno({})],
       include: ["./src/**/*.{js,vue,ts}"],

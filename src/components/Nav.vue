@@ -12,16 +12,16 @@ const buttons = [
   { title: "Vue array of refs", handler: () => import("/src/vue-array.js") },
   { title: "Vue array of shallowRefs", handler: () => import("/src/vue-array-shallow.js") },
   { title: "Vue immer", handler: () => import("/src/vue-immer.js") },
-
+  { title: "React", handler: () => import("/src/react.jsx") },
 ];
 function handleClick(button, i) {
   state.active = i;
-  button.handler().then(({ benchmark }) => benchmark());
+  button.handler().then(({ benchmark }) => benchmark?.());
 }
 </script>
 
 <template>
-  <div class="flex gap-2 mb-2">
+  <div class="flex gap-2 mb-2 overflow-x-auto">
     <Button
       v-for="(button, i) in buttons"
       @click="handleClick(button, i)"

@@ -1,6 +1,6 @@
 import { createApp, h } from "vue";
 import component from "./vue-array.vue";
-import { listData } from "./vue-array-state.js";
-export { benchmark } from "./vue-array-state.js";
+import { listData } from "./vue-array-shallow-state.js";
+export { benchmark } from "./vue-array-shallow-state.js";
 
 createApp(() => h(component, { listData })).mount("#app");

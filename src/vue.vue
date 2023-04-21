@@ -1,5 +1,10 @@
 <script setup>
-import {listData} from './vue-state.js'
+const props = defineProps({
+  listData: {
+    type: Array,
+    default: () => [],
+  },
+});
 </script>
 
 <template>

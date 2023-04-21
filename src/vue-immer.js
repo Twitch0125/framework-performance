@@ -5,6 +5,9 @@ import produce from "immer";
 
 const listData = ref(list);
 
+//************************** */
+// It looks like this only triggers 100 side effects, where as the other vue implementations trigger 50,000 side effects
+//************************** */
 function mutate() {
   setTimeout(() => {
     listData.value = produce(listData.value, (arr) => {

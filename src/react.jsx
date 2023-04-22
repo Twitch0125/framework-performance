@@ -23,7 +23,7 @@ function App(props) {
   return (
     <ul>
       {props.listData.map((item) => (
-        <li key={item.name}>{item.name}</li>
+        <li key={item.id}>{item.name}</li>
       ))}
     </ul>
   );

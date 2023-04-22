@@ -15,6 +15,7 @@ const buttons = [
   { title: "Vue react style", handler: () => import("/src/vue-react-style.js") },
   { title: "React", handler: () => import("/src/react.jsx") },
   { title: "Svelte", handler: () => import("/src/svelte.js") },
+  { title: "Solid", handler: () => import("/src/solid.jsx") },
 ];
 function handleClick(button, i) {
   state.active = i;

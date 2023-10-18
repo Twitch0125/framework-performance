@@ -1,7 +1,5 @@
 <script setup>
-import { reactive } from "vue";
-import Button from "./Button.vue";
-const state = reactive({ active: null });
+import { ref } from "vue";
 const buttons = [
   { title: "Vanilla", handler: () => import("/src/vanilla.js") },
   { title: "Arrow", handler: () => import("/src/arrow.js") },
@@ -12,24 +10,25 @@ const buttons = [
   { title: "Vue array of refs", handler: () => import("/src/vue-array.js") },
   { title: "Vue array of shallowRefs", handler: () => import("/src/vue-array-shallow.js") },
   { title: "Vue immer", handler: () => import("/src/vue-immer.js") },
-  { title: "Vue react style", handler: () => import("/src/vue-react-style.js") },
   { title: "React", handler: () => import("/src/react.jsx") },
   { title: "Svelte", handler: () => import("/src/svelte.js") },
 ];
+const active = ref();
 function handleClick(button, i) {
-  state.active = i;
+  active.value = i;
   button.handler().then(({ benchmark }) => benchmark?.());
 }
 </script>
 
 <template>
   <div class="flex gap-2 mb-2 overflow-x-auto">
-    <Button
+    <button
       v-for="(button, i) in buttons"
       @click="handleClick(button, i)"
-      :class="state.active === i ? 'btn-primary' : 'btn-neutral'"
+      class="btn"
+      :class="active === i ? 'btn-primary' : 'btn-neutral'"
     >
       {{ button.title }}
-    </Button>
+    </button>
   </div>
 </template>

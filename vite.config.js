@@ -9,12 +9,12 @@ import solid from "vite-plugin-solid";
 export default defineConfig({
   plugins: [
     vue(),
-    // react(),
+    // react(), for some reason I can't have solid AND react plugins
     svelte(),
     solid(),
     UnoCSS({
       presets: [presetUno({})],
-      include: ["./src/**/*.{js,vue,ts}"],
+      include: ["./src/**/*.{jsx,vue,tsx,js,ts}"],
       shortcuts: {
         btn: "border-1 rounded px-3 py-2",
         "btn-primary": "border-orange-600 bg-orange-50/90 text-orange-600 font-bold",

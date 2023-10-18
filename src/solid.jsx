@@ -1,24 +1,15 @@
 import { list, token, go } from "./utils/index.js";
 import { render } from "solid-js/web";
-import { For, createEffect, on, createSignal } from "solid-js";
-import { createStore, produce } from "solid-js/store";
+import { Index, createRenderEffect, createSignal } from "solid-js";
 
 const root = document.getElementById("app");
-const [listData, setListData] = createStore(list);
-const [updates, setUpdates] = createSignal(0);
-createEffect(
-  on(listData, (v) => {
-    setUpdates(updates() + 1);
-  })
-);
+const signals = list.map((item) => createSignal(item));
 export function mutate() {
-  setListData(
-    produce((arr) => {
-      setTimeout(() => {
-        arr.forEach((item) => (item.name = token()));
-      }, 0);
-    })
-  );
+  signals.forEach(([getSignal, setSignal]) => {
+    setTimeout(() => {
+      setSignal({ ...getSignal(), name: token() });
+    }, 0);
+  });
 }
 
 export async function benchmark() {
@@ -31,9 +22,8 @@ function App() {
   return (
     <>
       <ul>
-        <For each={listData}>{(item) => <li>{item.name}</li>}</For>
+        <Index each={signals}>{(signal) => <li>{signal()[0]().name}</li>}</Index>
       </ul>
-      <div>updates: {updates}</div>
     </>
   );
 }

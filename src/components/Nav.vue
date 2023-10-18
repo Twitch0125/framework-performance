@@ -1,7 +1,5 @@
 <script setup>
-import { reactive } from "vue";
-import Button from "./Button.vue";
-const state = reactive({ active: null });
+import { ref } from "vue";
 const buttons = [
   { title: "Vanilla", handler: () => import("/src/vanilla.js") },
   { title: "Arrow", handler: () => import("/src/arrow.js") },
@@ -17,20 +15,22 @@ const buttons = [
   { title: "Svelte", handler: () => import("/src/svelte.js") },
   { title: "Solid", handler: () => import("/src/solid.jsx") },
 ];
+const active = ref(null);
 function handleClick(button, i) {
-  state.active = i;
+  active.value = i;
   button.handler().then(({ benchmark }) => benchmark?.());
 }
 </script>
 
 <template>
   <div class="flex gap-2 mb-2 overflow-x-auto">
-    <Button
+    <button
       v-for="(button, i) in buttons"
       @click="handleClick(button, i)"
-      :class="state.active === i ? 'btn-primary' : 'btn-neutral'"
+      class="btn"
+      :class="active === i ? 'btn-primary' : 'btn-neutral'"
     >
       {{ button.title }}
-    </Button>
+    </button>
   </div>
 </template>
